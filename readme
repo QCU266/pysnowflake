@@ -1,0 +1,4 @@
+rm -rf generator.log && time python generator.py
+grep -v  WARN generator.log | awk '{print $5}' > id.txt
+python verify.py id.txt
+python decode_base62id.py
